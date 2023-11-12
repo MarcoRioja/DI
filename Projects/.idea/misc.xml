@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ASMIdeaPluginConfiguration">
     <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
@@ -7,7 +8,9 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/DI_2/pom.xml" />
+        <option value="$PROJECT_DIR$/WindowBuilder/pom.xml" />
+        <option value="$PROJECT_DIR$/JOptionPaneExercises/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,29 +1,23 @@
-package org.example;
+package org.example.Windows;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana6VariosJpane_2 extends JFrame{
+public class Windows6 extends JFrame{
 
     private JLabel etiquetaMensaje;
-    private String msgText;
-    static Ventana6VariosJpane_2 ventana;
-    static byte botonN;
 
-    public Ventana6VariosJpane_2() {
+    public Windows6() {
         setTitle("Ejemplo con Dis Contenedores");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panelBotones = new JPanel();
-        JPanel panelTexto = new JPanel();
         JPanel panelMensaje = new JPanel();
 
         //creamos las etiquetas
-        msgText = "Mensaje: ";
-        JLabel etiquetaMensaje = new JLabel(msgText);
-        JTextField textField = new JTextField("Nombre");
+        JLabel etiquetaMensaje = new JLabel("Mensaje: ");
 
         //creamos un bucle para los botones y el ActionListener asi como que al pulsar cambie el mensaje del boton
         for (int i = 0; i <= 3; i++) {
@@ -33,11 +27,8 @@ public class Ventana6VariosJpane_2 extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //extraemos el nombre del boton
-                    byte boton_number = botonN;
                     String textoBoton = ((JButton) e.getSource()).getText();
-                    etiquetaMensaje.setText(msgText + textoBoton);
-                    Ventana6VariosJpane_2 ventana = new Ventana6VariosJpane_2();
-                    ventana.msgText = ("Pulsado el boton " + boton_number);
+                    etiquetaMensaje.setText("Mensaje: " + textoBoton);
                     //definimos el contenido de la etiqueta label cuando pulsamos en cada boton
                 }
             });
@@ -49,10 +40,8 @@ public class Ventana6VariosJpane_2 extends JFrame{
             // PULSADO, 1,2,3
             setLayout(new BorderLayout());
             add(panelBotones, BorderLayout.SOUTH);
-            add(panelMensaje, BorderLayout.NORTH);
-            add(panelTexto, BorderLayout.CENTER);
+            add(panelMensaje, BorderLayout.CENTER);
             panelMensaje.add(etiquetaMensaje);
-            panelTexto.add(textField);
 
             pack();// ajusta el tamaño de los elementos del jframe
             // setLocationRelativeTo(null);
@@ -64,6 +53,10 @@ public class Ventana6VariosJpane_2 extends JFrame{
 
         // programa tareas que deben ejecutarse de manera segura, y evita concurrencia
         // que se ejecutan varias acciones al mismo tiempo e interfieran entre si
-        ventana = new Ventana6VariosJpane_2();
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Windows6();
+            }
+        });
     }
 }

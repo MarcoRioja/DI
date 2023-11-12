@@ -1,15 +1,18 @@
-package org.example;
+package org.example.Windows;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana6VariosJpane_1 extends JFrame{
+public class Windows6Jpane_2 extends JFrame{
 
     private JLabel etiquetaMensaje;
+    private String msgText;
+    static Windows6Jpane_2 ventana;
+    static byte botonN;
 
-    public Ventana6VariosJpane_1() {
+    public Windows6Jpane_2() {
         setTitle("Ejemplo con Dis Contenedores");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -18,7 +21,8 @@ public class Ventana6VariosJpane_1 extends JFrame{
         JPanel panelMensaje = new JPanel();
 
         //creamos las etiquetas
-        JLabel etiquetaMensaje = new JLabel("Mensaje: ");
+        msgText = "Mensaje: ";
+        JLabel etiquetaMensaje = new JLabel(msgText);
         JTextField textField = new JTextField("Nombre");
 
         //creamos un bucle para los botones y el ActionListener asi como que al pulsar cambie el mensaje del boton
@@ -29,8 +33,11 @@ public class Ventana6VariosJpane_1 extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     //extraemos el nombre del boton
+                    byte boton_number = botonN;
                     String textoBoton = ((JButton) e.getSource()).getText();
-                    etiquetaMensaje.setText("Mensaje: " + textoBoton);
+                    etiquetaMensaje.setText(msgText + textoBoton);
+                    Windows6Jpane_2 ventana = new Windows6Jpane_2();
+                    ventana.msgText = ("Pulsado el boton " + boton_number);
                     //definimos el contenido de la etiqueta label cuando pulsamos en cada boton
                 }
             });
@@ -57,10 +64,6 @@ public class Ventana6VariosJpane_1 extends JFrame{
 
         // programa tareas que deben ejecutarse de manera segura, y evita concurrencia
         // que se ejecutan varias acciones al mismo tiempo e interfieran entre si
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new Ventana6VariosJpane_1();
-            }
-        });
+        ventana = new Windows6Jpane_2();
     }
 }

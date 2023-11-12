@@ -1,23 +1,25 @@
-package org.example;
+package org.example.Windows;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Ventana6VariosJpane extends JFrame{
+public class Windows6Jpane_1 extends JFrame{
 
     private JLabel etiquetaMensaje;
 
-    public Ventana6VariosJpane() {
+    public Windows6Jpane_1() {
         setTitle("Ejemplo con Dis Contenedores");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panelBotones = new JPanel();
+        JPanel panelTexto = new JPanel();
         JPanel panelMensaje = new JPanel();
 
         //creamos las etiquetas
         JLabel etiquetaMensaje = new JLabel("Mensaje: ");
+        JTextField textField = new JTextField("Nombre");
 
         //creamos un bucle para los botones y el ActionListener asi como que al pulsar cambie el mensaje del boton
         for (int i = 0; i <= 3; i++) {
@@ -40,8 +42,10 @@ public class Ventana6VariosJpane extends JFrame{
             // PULSADO, 1,2,3
             setLayout(new BorderLayout());
             add(panelBotones, BorderLayout.SOUTH);
-            add(panelMensaje, BorderLayout.CENTER);
+            add(panelMensaje, BorderLayout.NORTH);
+            add(panelTexto, BorderLayout.CENTER);
             panelMensaje.add(etiquetaMensaje);
+            panelTexto.add(textField);
 
             pack();// ajusta el tamaño de los elementos del jframe
             // setLocationRelativeTo(null);
@@ -55,7 +59,7 @@ public class Ventana6VariosJpane extends JFrame{
         // que se ejecutan varias acciones al mismo tiempo e interfieran entre si
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new Ventana6VariosJpane();
+                new Windows6Jpane_1();
             }
         });
     }
