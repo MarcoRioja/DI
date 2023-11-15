@@ -46,10 +46,6 @@ public class Windows5WithMetods4 extends JFrame {
     	  		window.addButton("Boton "+i,50,y);
     		y=y+50;
     	}
-    	
-    	
-    	
-    
     
     }
 }
